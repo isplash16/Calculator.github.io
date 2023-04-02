@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Bebas+Neue&family=Black+Ops+One&family=Newsreader:opsz,wght@6..72,200&family=Oswald&family=Pacifico&family=Poppins:wght@800&family=Rubik&family=Tilt+Warp&family=VT323&display=swap");
+.mbutton {
+  margin: 5px;
+  width: 16.66% !important;
+  font-family: "bebas neue" !important;
+}
+table {
+  width: 100%;
+}
+td {
+  width: 25% !important;
+}
+td .btn {
+  height: 8vh;
+  font-family: "tilt warp";
+  border: solid 1px gainsboro !important;
+}
+.form-control {
+  height: 10vh !important;
+}
+#numbers {
+  background-color: #414a4c;
+  border: none;
+}
+input {
+  background-color: #414a4c !important;
+  color: white !important;
+  text-align: end;
+  font-family: "Vt323" !important;
+  font-size: 4vh !important;
+}
+.btn-info {
+  background-color: #213a5c !important;
+  color: black !important;
+  color: white !important;
+}
+.btnarithmetic {
+  background-color: #758d93 !important;
+  color: white !important;
+}
+#expression {
+  height: 2vh !important;
+  font-size: 3vh !important;
+  background: transparent !important;
+  margin-bottom: 1vh;
+}
+.memorybox {
+  align-self: center !important;
+  height: 5vh !important;
+  width: 100%;
+  text-align: center;
+  font-size: 3vh !important;
+}
+.membutton {
+  height: 5vh !important;
+  align-self: center !important;
+}
