@@ -112,7 +112,7 @@
                   </button>
                 </div>
                 <div
-                  class="memory collapse bg-info rounded text-white py-2"
+                  class="memory collapse bg-info rounded text-white py-2 mb-1"
                   id="memoriesCollapse"
                 >
                   <div class="d-flex px-2">
@@ -134,7 +134,7 @@
                       M-</button
                     ><input
                       type="text"
-                      class="memorybox"
+                      class="memorybox rounded"
                       id="memoryID"
                       readonly
                       style="pointer-events: none"
@@ -144,7 +144,10 @@
                 <table class="btncalc mx-auto w-100">
                   <tr>
                     <td>
-                      <button class="btn btn-lg btn-info w-100" value="%">
+                      <button
+                        class="btn btn-lg btn-info w-100"
+                        onclick="modulus()"
+                      >
                         %
                       </button>
                     </td>
@@ -355,16 +358,6 @@
                     </td>
                   </tr>
                 </table>
-              </div>
-
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
               </div>
             </div>
           </div>

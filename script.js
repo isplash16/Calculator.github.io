@@ -1,89 +1,102 @@
 let output = "";
-
 let expression = "";
-
-let num1 = "";
-let num2 = "";
 let temp = "";
 let dCounter = 1;
-let mem1;
+let mem1 = "";
 
-let memArray = [mem1, mem2, mem3];
-
+// INPUT NUMBERS FUNCTION
 function addToOutput(value) {
   expression += value;
 
   document.getElementById("expression").value = expression;
-  num1 = document.getElementById("expression").value;
+
   expression = document.getElementById("expression").value;
 }
+// ADDITION FUNCTION
 function addition() {
   if (expression != "") {
     if (
       expression.endsWith("+") ||
       expression.endsWith("-") ||
       expression.endsWith("/") ||
-      expression.endsWith("*")
+      expression.endsWith("*") ||
+      expression.endsWith("%")
     ) {
       // DO NOTHING
     } else {
-      document.getElementById("expression").value = num1;
       document.getElementById("expression").value = expression + "+";
       document.getElementById("result").value = "";
       expression = document.getElementById("expression").value;
       dCounter = 1;
     }
   } else {
-    // Do NOTHING
+    // DO NOTHING
   }
 }
-
+// SUBTRACTION FUNCTION
 function subtraction() {
-  if (
-    expression.endsWith("+") ||
-    expression.endsWith("-") ||
-    expression.endsWith("/") ||
-    expression.endsWith("*")
-  ) {
-    // DO NOTHING
+  if (expression != "") {
+    if (
+      expression.endsWith("+") ||
+      expression.endsWith("-") ||
+      expression.endsWith("/") ||
+      expression.endsWith("*") ||
+      expression.endsWith("%")
+    ) {
+      // DO NOTHING
+    } else {
+      document.getElementById("result").value = "";
+      document.getElementById("expression").value = expression + "-";
+      expression = document.getElementById("expression").value;
+      dCounter = 1;
+    }
   } else {
-    document.getElementById("result").value = "";
-    document.getElementById("expression").value = expression + "-";
-    expression = document.getElementById("expression").value;
-    dCounter = 1;
+    // DO NOTHING
   }
 }
+// MULTIPLICATION FUNCTION
 function multiplication() {
-  if (
-    expression.endsWith("+") ||
-    expression.endsWith("-") ||
-    expression.endsWith("/") ||
-    expression.endsWith("*")
-  ) {
-    // DO NOTHING
+  if (expression != "") {
+    if (
+      expression.endsWith("+") ||
+      expression.endsWith("-") ||
+      expression.endsWith("/") ||
+      expression.endsWith("*") ||
+      expression.endsWith("%")
+    ) {
+      // DO NOTHING
+    } else {
+      document.getElementById("result").value = "";
+      document.getElementById("expression").value = expression + "*";
+      expression = document.getElementById("expression").value;
+      dCounter = 1;
+    }
   } else {
-    document.getElementById("result").value = "";
-    document.getElementById("expression").value = expression + "*";
-    expression = document.getElementById("expression").value;
-    dCounter = 1;
+    // DO NOTHING
   }
 }
+// DIVISION FUNCTION
 function division() {
-  if (
-    expression.endsWith("+") ||
-    expression.endsWith("-") ||
-    expression.endsWith("/") ||
-    expression.endsWith("*")
-  ) {
-    // DO NOTHING
+  if (expression != "") {
+    if (
+      expression.endsWith("+") ||
+      expression.endsWith("-") ||
+      expression.endsWith("/") ||
+      expression.endsWith("*") ||
+      expression.endsWith("%")
+    ) {
+      // DO NOTHING
+    } else {
+      document.getElementById("result").value = "";
+      document.getElementById("expression").value = expression + "/";
+      expression = document.getElementById("expression").value;
+      dCounter = 1;
+    }
   } else {
-    document.getElementById("result").value = "";
-    document.getElementById("expression").value = expression + "/";
-    expression = document.getElementById("expression").value;
-    dCounter = 1;
+    // DO NOTHING
   }
 }
-
+//  EQUALS FUNCTION
 function calculate() {
   var x = document.getElementById("result").value;
   x = eval(expression);
@@ -91,8 +104,8 @@ function calculate() {
   document.getElementById("result").value = output;
   output = document.getElementById("result").value;
   expression = output;
-  num1 = output;
 }
+// CLEAR ALL FUNCTION
 function clearValues() {
   output = "";
   expression = "";
@@ -101,6 +114,7 @@ function clearValues() {
   document.getElementById("result").value = "";
   document.getElementById("expression").value = "";
 }
+// SQUARE ROOT FUNCTION
 function getSquareRoot() {
   if (expression != "") {
     temp = expression;
@@ -109,14 +123,13 @@ function getSquareRoot() {
     document.getElementById("result").value = expression;
     document.getElementById("expression").value = "√" + "(" + temp + ")";
     output = document.getElementById("result").value;
-    num1 = output;
+
     expression = output;
   } else {
     // DO NOTHING
   }
 }
-//
-
+// POSITIVE NEGATIVE CONVERT FUNCTION
 function positiveNegative() {
   if (expression != "") {
     if (expression.includes("-")) {
@@ -130,6 +143,7 @@ function positiveNegative() {
     document.getElementById("result").value = output;
   }
 }
+// SECOND POWER FUNCTION
 function secondPower() {
   if (expression != "") {
     if (expression.startsWith("-")) {
@@ -142,7 +156,6 @@ function secondPower() {
       document.getElementById("expression").value = temp + "²";
       output = document.getElementById("result").value;
       expression = output;
-      num1 = output;
     } else {
       var x;
       temp = expression;
@@ -153,12 +166,12 @@ function secondPower() {
       document.getElementById("expression").value = temp + "²";
       output = document.getElementById("result").value;
       expression = output;
-      num1 = output;
     }
   } else {
     // DO NOTHING
   }
 }
+// DELETE FUNCTION
 function backSpace() {
   var exText = document.getElementById("expression").value;
   document.getElementById("expression").value = exText.substr(
@@ -166,7 +179,13 @@ function backSpace() {
     exText.length - 1
   );
   expression = document.getElementById("expression").value;
+  if (expression.includes(".")) {
+    // DO NOTHING
+  } else {
+    dCounter = 1;
+  }
 }
+// 1/X FUNCTION
 function oneOverX() {
   temp = expression;
   var oneOver = "";
@@ -175,9 +194,8 @@ function oneOverX() {
   document.getElementById("expression").value = "1/" + temp;
   output = document.getElementById("result").value;
   expression = output;
-  num1 = output;
 }
-
+// CE FUNCTION
 function clearElement() {
   var inputField = expression;
   var inputValue = inputField;
@@ -189,7 +207,13 @@ function clearElement() {
   expression = newValue;
   document.getElementById("expression").value = expression;
 }
+// DECIMAL FUNCTION
 function decimalInput() {
+  if (expression.includes(".")) {
+    // DO NOTHING
+  } else {
+    dCounter = 1;
+  }
   var inputField = expression;
 
   if (dCounter == 1) {
@@ -199,6 +223,28 @@ function decimalInput() {
   document.getElementById("expression").value = inputField;
   expression = inputField;
 }
+// MODULUS FUNCTION
+function modulus() {
+  if (expression != "") {
+    if (
+      expression.endsWith("+") ||
+      expression.endsWith("-") ||
+      expression.endsWith("/") ||
+      expression.endsWith("*") ||
+      expression.endsWith("%")
+    ) {
+      // DO NOTHING
+    } else {
+      document.getElementById("result").value = "";
+      document.getElementById("expression").value = expression + "%";
+      expression = document.getElementById("expression").value;
+      dCounter = 1;
+    }
+  } else {
+    // DO NOTHING
+  }
+}
+// MEMORY FUNCTIONS
 function memStore() {
   mem1 = output;
   document.getElementById("memoryID").value = mem1;
